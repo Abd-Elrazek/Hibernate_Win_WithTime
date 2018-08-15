@@ -1,6 +1,8 @@
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXScrollPane;
+// import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.net.URL;
@@ -21,6 +23,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 /**
  *
  * @author Abdelrazek
@@ -31,57 +35,31 @@ public class Shut_Content implements Initializable {
      // Variables
     private Stage Data_Emails;
     @FXML
-    private JFXButton changeColor;
+    private JFXButton run;
     
     @FXML
-    private JFXButton button2;
+    private JFXButton abort;
     
-    private AnchorPane Data_Fxml; 
-    
-    private int button_index = 1;
-    private double layoutX = 284;
-    private double layoutY = 0;
-                  // functions
-    
+	@FXML 
+	private TextField btn_time ;
+	
+
     // this function used to initialize my variables
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-   
-        // initialize my data emails in stage and scence and its url 
-        Data_Emails = new Stage();
-        Data_Emails.setResizable(false);
-        Data_Emails.setTitle("Insert or Edit Details");
-        try {
-            Data_Fxml = FXMLLoader.load(getClass().getResource("Data_Emails.fxml"));
-            Data_Emails.setScene(new Scene(Data_Fxml));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("here wrong .....");
-        }
-        
       
     } // end Function initialize 
     
     // function to show Data Emails
-    public void showData_Emails(MouseEvent event){
-        Data_Emails.show();
+    public void vlidation_text(MouseEvent event){
+	  String value_text =  btn_time.getText();
+	  if (!value_text.matches("[1-9]+")) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Warning!!");
+        alert.setHeaderText("There's Error..");
+        alert.setContentText("Insert only Number between 1 to 9");
+        alert.showAndWait();
+        }
     }
-    
    
-    @FXML
-    public void insert_Button(){
-    button2 = new JFXButton();
-    button2.setText("button2");
-    button2.setStyle("-fx-background-color: red;");
-
-    }
-    
 }
-    /* 
-     @FXML
-      public void setCursor(){
-        button.setStyle("-fx-cursor : url(images/cursor.png) , auto");
-    }
-    */
-   
-
