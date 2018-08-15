@@ -65,7 +65,14 @@ public class Shut_Content implements Initializable {
 	public void sleep_(MouseEvent event){
 		int number_ = Integer.parseInt(value_text);
 		while(runnig){
-		try{ System.out.println("Is Sleeping..."); Thread.sleep(number_ * 60000); }catch(InterruptedException e){}
+		try{ System.out.println("Computer Will hibernate after " + number_); 
+		for(int i = 1; i <= number_; i++){
+		Thread.sleep(60000); 
+		number_ -= 1;
+		System.out.println("The remaining time is (minute) : " + number_ );
+		}
+		}catch(InterruptedException e){}
+		runnig = false;
 		hibernate();
 		}
 	}
@@ -74,13 +81,10 @@ public class Shut_Content implements Initializable {
 	public void hibernate(){
 		// Local Variables
 		String operatingSystem = System.getProperty("os.name");
-		
+		System.out.println("The Computer is hibernate now...");
 		if (operatingSystem.startsWith("Windows"))
         {
             shutdownCommand = "shutdown.exe -h"; // For h only
-        }else
-        {
-           
         }
 		try{
 	    Runtime.getRuntime().exec(shutdownCommand);
