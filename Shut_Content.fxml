@@ -11,8 +11,8 @@
    <children>
       <Pane prefHeight="141.0" prefWidth="313.0" style="-fx-background-color: #1073AD;">
          <children>
-            <JFXButton fx:id="run" buttonType="RAISED" layoutX="46.0" layoutY="98.0" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Run" textFill="WHITE" />
-            <JFXButton fx:id="abort" buttonType="RAISED" layoutX="196.0" layoutY="98.0" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Abort" textFill="#ebebeb" />
+            <JFXButton fx:id="run" buttonType="RAISED" layoutX="46.0" layoutY="98.0" onMouseClicked="#sleep_" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Run" textFill="WHITE" />
+            <JFXButton fx:id="abort" buttonType="RAISED" layoutX="196.0" layoutY="98.0" onMouseClicked="#abort" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Abort" textFill="#ebebeb" />
             <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="14.0" layoutY="27.0" prefHeight="44.0" prefWidth="121.0" text="Timer " textAlignment="CENTER" textFill="#ebebeb">
                <font>
                   <Font name="Arial" size="24.0" />
