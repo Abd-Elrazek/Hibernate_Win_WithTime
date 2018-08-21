@@ -37,6 +37,7 @@ public class Shut_Content implements Initializable {
 	private String shutdownCommand="";
 	private String value_text = "";
 	boolean runnig = true;
+	private int number_ = 0;
 	
 	
 // Functions 
@@ -67,7 +68,7 @@ public class Shut_Content implements Initializable {
         }else{
 		 new Thread() {
         public void run() {
-        int number_ = Integer.parseInt(value_text);
+        number_ = Integer.parseInt(value_text);
 		
 		try{	
 		System.out.println("Computer Will hibernate after " + number_ + " Minute"); 
