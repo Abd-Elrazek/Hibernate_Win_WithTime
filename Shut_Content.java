@@ -45,17 +45,15 @@ public class Shut_Content implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
       
     }
-	// Check ValidationEvent
-    public void vlidation_text(MouseEvent event){
-	  value_text =  btn_time.getText();
-	  if (!value_text.matches("[1-9]+")) {
-        Alert alert = new Alert(AlertType.WARNING);
+	public void alert_msg(){
+		Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Warning!!");
         alert.setHeaderText("There's Error..");
         alert.setContentText("Insert only Number between 1 to 9");
         alert.showAndWait();
-        }
-    }
+	}
+	
+	
 	
 	// abort 
 	public void abort(MouseEvent event){
@@ -63,20 +61,29 @@ public class Shut_Content implements Initializable {
 	}
 	//sleep 
 	public void sleep_(MouseEvent event){
-		
+		value_text =  btn_time.getText();
+        if (!value_text.matches("[1-9]+")) {
+        alert_msg();
+        }else{
 		 new Thread() {
         public void run() {
         int number_ = Integer.parseInt(value_text);
-		try{ System.out.println("Computer Will hibernate after " + number_); 
+		
+		try{	
+		System.out.println("Computer Will hibernate after " + number_ + " Minute"); 
+		
 		for(int i = 1; i <= number_; i++){
 		Thread.sleep(60000); 
 		number_ -= 1;
 		System.out.println("The remaining time is (minute) : " + number_ );
 		}
+		
 		}catch(InterruptedException e){}
 		hibernate();
-        }
+		}
+   
     }.start();
+	}
 	}
 	
 	// Hibernate 
