@@ -63,8 +63,10 @@ public class Shut_Content implements Initializable {
 	}
 	//sleep 
 	public void sleep_(MouseEvent event){
-		int number_ = Integer.parseInt(value_text);
-		while(runnig){
+		
+		 new Thread() {
+        public void run() {
+        int number_ = Integer.parseInt(value_text);
 		try{ System.out.println("Computer Will hibernate after " + number_); 
 		for(int i = 1; i <= number_; i++){
 		Thread.sleep(60000); 
@@ -72,9 +74,9 @@ public class Shut_Content implements Initializable {
 		System.out.println("The remaining time is (minute) : " + number_ );
 		}
 		}catch(InterruptedException e){}
-		runnig = false;
 		hibernate();
-		}
+        }
+    }.start();
 	}
 	
 	// Hibernate 
