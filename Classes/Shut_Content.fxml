@@ -7,23 +7,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Shut_Content">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.86" prefHeight="141.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Shut_Content">
    <children>
-      <Pane prefHeight="141.0" prefWidth="313.0" style="-fx-background-color: #1073AD;">
+      <Pane opacity="0.95" prefHeight="141.0" prefWidth="313.0" style="-fx-background-color: #1073AD;">
          <children>
-            <JFXButton fx:id="run" buttonType="RAISED" layoutX="46.0" layoutY="98.0" onMouseClicked="#sleep_" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Run" textFill="WHITE" />
-            <JFXButton fx:id="abort" buttonType="RAISED" layoutX="196.0" layoutY="98.0" onMouseClicked="#abort" prefHeight="21.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Abort" textFill="#ebebeb" />
+            <JFXButton fx:id="run" buttonType="RAISED" layoutX="46.0" layoutY="91.0" onMouseClicked="#sleep_" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Run" textFill="WHITE" />
+            <JFXButton fx:id="abort" buttonType="RAISED" layoutX="188.0" layoutY="91.0" onMouseClicked="#abort" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: #4967B6;" text="Exit" textFill="#ebebeb" />
             <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="14.0" layoutY="27.0" prefHeight="44.0" prefWidth="121.0" text="Timer " textAlignment="CENTER" textFill="#ebebeb">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" layoutX="291.0" layoutY="4.0" prefHeight="21.0" prefWidth="16.0" text="X" textAlignment="CENTER" textFill="#d30027">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <TextField fx:id="btn_time" layoutX="144.0" layoutY="27.0" onMouseExited="#vlidation_text" prefHeight="44.0" prefWidth="133.0" />
+            <TextField fx:id="btn_time" alignment="CENTER" layoutX="127.0" layoutY="27.0" prefHeight="44.0" prefWidth="150.0" promptText="Minute" style="-fx-background-radius: 12;" />
          </children>
       </Pane>
    </children>
