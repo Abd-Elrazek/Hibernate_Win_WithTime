@@ -62,6 +62,7 @@ public class Shut_Content implements Initializable {
 	}
 	//sleep 
 	public void sleep_(MouseEvent event){
+		number_ = 0;
 		value_text =  btn_time.getText();
         if (!value_text.matches("[1-9]+")) {
         alert_msg();
