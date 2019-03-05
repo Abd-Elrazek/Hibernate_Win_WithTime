@@ -13,8 +13,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.application.Platform;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -33,7 +36,8 @@ public class Shut_Content implements Initializable {
     
 	@FXML 
 	private TextField btn_time ;
-	
+	@FXML 
+	private Label  label_time;
 	private String shutdownCommand="";
 	private String value_text = "";
 	boolean runnig = true;
@@ -64,28 +68,36 @@ public class Shut_Content implements Initializable {
 	public void sleep_(MouseEvent event){
 		number_ = 0;
 		value_text =  btn_time.getText();
-        if (!value_text.matches("[1-9]+")) {
+        if (!value_text.matches("[1-9]+0?")) {
         alert_msg();
         }else{
-		 new Thread() {
-        public void run() {
-        number_ = Integer.parseInt(value_text);
-		
-		try{	
-		System.out.println("Computer Will hibernate after " + number_ + " Minute"); 
-		
-		for(int i = 1; i <= number_; i++){
-		Thread.sleep(60000); 
-		number_ -= 1;
-		System.out.println("The remaining time is (minute) : " + number_ );
-		}
-		
-		}catch(InterruptedException e){}
-		hibernate();
-		}
-   
-    }.start();
-	}
+		label_time.setText(value_text);
+			new Thread() {
+				public void run() {
+					number_ = Integer.parseInt(value_text);
+					try{
+						for(int i = 1; i <= number_ * 8; i++){
+							Thread.sleep(60000); 
+							number_ -= 1;
+							Platform.runLater(new Runnable(){
+								@Override public void run() {
+									label_time.setText(""+ number_);
+									 if (number_ < 10){
+									    label_time.setTextFill(Color.web("#FF0000"));
+										Alert alert = new Alert(AlertType.INFORMATION);
+										alert.setTitle("Warning!!");
+										alert.setContentText("The Time remaining : "+ number_ + " Minute.");
+										alert.show();
+									} 
+								}
+							});
+						}
+			            hibernate();
+					}catch(InterruptedException e){}
+				}
+	   
+		    }.start();
+	    }
 	}
 	
 	// Hibernate 
